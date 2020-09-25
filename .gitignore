@@ -1,0 +1,8 @@
+tags
+.*
+!.gitignore
+!.vimspell.*
+*.out
+old/
+used/
+sandbox/
