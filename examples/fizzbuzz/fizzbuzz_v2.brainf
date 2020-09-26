@@ -1,0 +1,461 @@
+#declarations {
+
+!iter
+
+i #second digit of the current number
+j #first digit of that
+
+#const
+a
+b
+c
+
+#tmp
+d
+e
+f
+
+#tmp
+p
+q
+r
+s
+t
+u
+v
+
+#tmp
+U
+V
+
+#} declarations
+
+#iter = 100
+#p used but reset to zero
+iter[-]
+p[-]
+p 10+
+[
+    iter 10+
+    p -
+]
+
+b[-]
+c[-]
+b 5+
+c 9+
+
+iter[
+    #1
+    {
+        #a
+        {
+            #d = j
+            #q used but reset to zero
+            d[-]
+            p[-]
+            j[d+ p+ j-]
+            p[j+ p-]
+
+            #d = (j == c)
+            #p, q used but reset to zero
+            p[-]
+            q[-]
+            d[q+d-]+
+            c[q-p+c-]
+            p[c+p-]
+            q[d-q[-]]
+
+            #if (d) { } else { }
+            #p, q used but reset to zero
+            p[-]
+            q[-]
+            d[p+q+d-]
+            p[d+p-]+
+            q[
+                {
+                    i +
+                    j[-]
+                }
+                p-
+                q[-]
+            ]
+            p[
+                {
+                    j +
+                }
+                p-
+            ]
+
+            d[-] #all tmps reset to zero
+        }
+
+        #b
+        {
+            #b' {
+
+            #d, e = j
+            #q used but reset to zero
+            d[-]
+            e[-]
+            p[-]
+            j[d+ e+ p+ j-]
+            p[j+ p-]
+
+            #d = (j == a)
+            #p, q used but reset to zero
+            p[-]
+            q[-]
+            d[q+d-]+
+            a[q-p+a-]
+            p[a+p-]
+            q[d-q[-]]
+
+            #e = (j == b)
+            #p, q used but reset to zero
+            p[-]
+            q[-]
+            e[q+e-]+
+            b[q-p+b-]
+            p[b+p-]
+            q[e-q[-]]
+
+            #d = (d || e)
+            #f reset to zero
+            p[-]
+            q[-]
+            r[-]
+            d[p+d-]
+            e[q+r+e-]
+            r[e+r-]
+            p[d[-]+p[-]]
+            q[d[-]+q[-]]
+            f[-]
+
+            #} b'
+
+            #if (d) { } else { }
+            #p, q, r used but reset to zero
+            p[-]
+            q[-]
+            d[p+q+d-]
+            p[d+p-]+
+            q[
+                {
+                    #printf("Buzz\n")
+                    #r used but reset to zero
+                    r[-]
+                    66+ . [-]
+                    117+ . [-]
+                    122+ . . [-]
+                    10+ . [-]
+                }
+                p-
+                q[-]
+            ]
+            p[
+                {
+                    #if (i) { }
+                    #s, t, u, v used but reset to zero
+                    s[-]
+                    t[-]
+                    u[-]
+                    v[-]
+                    i[s+ t+ i-]
+                    t[i+ t-]
+                    s[
+                        #printf("%d", i)
+                        {
+                            i[u+ v+ i-]
+                            v[i+ v-]
+                            u 48+ . [-]
+                        }
+                        s[-]
+                    ]
+                    #print(j + '\n')
+                    j[u+ v+ j-]
+                    v[j+ v-]
+                    u 48+ . [-]
+                    u 10+ . [-]
+                }
+                p-
+            ]
+        }
+
+        iter -
+    }
+
+    #if (iter) { }
+    #U, V used but reset to zero
+    iter[U+ V+ iter-]
+    V[iter+ V-]
+    U[
+        #This is exactly the same as #1.
+        {
+            #a
+            {
+                #d = j
+                #q used but reset to zero
+                d[-]
+                p[-]
+                j[d+ p+ j-]
+                p[j+ p-]
+
+                #d = (j == c)
+                #p, q used but reset to zero
+                p[-]
+                q[-]
+                d[q+d-]+
+                c[q-p+c-]
+                p[c+p-]
+                q[d-q[-]]
+
+                #if (d) { } else { }
+                #p, q used but reset to zero
+                p[-]
+                q[-]
+                d[p+q+d-]
+                p[d+p-]+
+                q[
+                    {
+                        i +
+                        j[-]
+                    }
+                    p-
+                    q[-]
+                ]
+                p[
+                    {
+                        j +
+                    }
+                    p-
+                ]
+
+                d[-] #all tmps reset to zero
+            }
+
+            #b
+            {
+                #d, e = j
+                #q used but reset to zero
+                d[-]
+                e[-]
+                p[-]
+                j[d+ e+ p+ j-]
+                p[j+ p-]
+
+                #d = (j == a)
+                #p, q used but reset to zero
+                p[-]
+                q[-]
+                d[q+d-]+
+                a[q-p+a-]
+                p[a+p-]
+                q[d-q[-]]
+
+                #e = (j == b)
+                #p, q used but reset to zero
+                p[-]
+                q[-]
+                e[q+e-]+
+                b[q-p+b-]
+                p[b+p-]
+                q[e-q[-]]
+
+                #d = (d || e)
+                #f reset to zero
+                p[-]
+                q[-]
+                r[-]
+                d[p+d-]
+                e[q+r+e-]
+                r[e+r-]
+                p[d[-]+p[-]]
+                q[d[-]+q[-]]
+                f[-]
+
+                #if (d) { } else { }
+                #p, q, r used but reset to zero
+                p[-]
+                q[-]
+                d[p+q+d-]
+                p[d+p-]+
+                q[
+                    #x
+                    {
+                        #printf("Buzz\n")
+                        #r used but reset to zero
+                        r[-]
+                        66+ . [-]
+                        117+ . [-]
+                        122+ . . [-]
+                        10+ . [-]
+                    }
+                    p-
+                    q[-]
+                ]
+                p[
+                    {
+                        #if (i) { }
+                        #s, t, u, v used but reset to zero
+                        s[-]
+                        t[-]
+                        u[-]
+                        v[-]
+                        i[s+ t+ i-]
+                        t[i+ t-]
+                        s[
+                            #printf("%d", i)
+                            {
+                                i[u+ v+ i-]
+                                v[i+ v-]
+                                u 48+ . [-]
+                            }
+                            s[-]
+                        ]
+                        #print(j + '\n')
+                        j[u+ v+ j-]
+                        v[j+ v-]
+                        u 48+ . [-]
+                        u 10+ . [-]
+                    }
+                    p-
+                ]
+            }
+
+            iter -
+        }
+
+        #2
+        {
+            #This is exactly the same as #a.
+            {
+                #d = j
+                #q used but reset to zero
+                d[-]
+                p[-]
+                j[d+ p+ j-]
+                p[j+ p-]
+
+                #d = (j == c)
+                #p, q used but reset to zero
+                p[-]
+                q[-]
+                d[q+d-]+
+                c[q-p+c-]
+                p[c+p-]
+                q[d-q[-]]
+
+                #if (d) { } else { }
+                #p, q used but reset to zero
+                p[-]
+                q[-]
+                d[p+q+d-]
+                p[d+p-]+
+                q[
+                    {
+                        i +
+                        j[-]
+                    }
+                    p-
+                    q[-]
+                ]
+                p[
+                    {
+                        j +
+                    }
+                    p-
+                ]
+
+                d[-] #all tmps reset to zero
+            }
+
+            #c
+            {
+                #printf("Fizz")
+                #r used but reset to zero
+                r[-]
+                70+ . [-]
+                105+ . [-]
+                122+ . . [-]
+
+                #{
+                #This is exactly the same as #b'
+
+                #d, e = j
+                #q used but reset to zero
+                d[-]
+                e[-]
+                p[-]
+                j[d+ e+ p+ j-]
+                p[j+ p-]
+
+                #d = (j == a)
+                #p, q used but reset to zero
+                p[-]
+                q[-]
+                d[q+d-]+
+                a[q-p+a-]
+                p[a+p-]
+                q[d-q[-]]
+
+                #e = (j == b)
+                #p, q used but reset to zero
+                p[-]
+                q[-]
+                e[q+e-]+
+                b[q-p+b-]
+                p[b+p-]
+                q[e-q[-]]
+
+                #d = (d || e)
+                #f reset to zero
+                p[-]
+                q[-]
+                r[-]
+                d[p+d-]
+                e[q+r+e-]
+                r[e+r-]
+                p[d[-]+p[-]]
+                q[d[-]+q[-]]
+                f[-]
+
+                #}
+
+                #if (d) { }
+                #p, q used but reset to zero
+                p[-]
+                q[-]
+                d[p+ q+ d-]
+                q[d+ q-]
+                p[
+                    #This is almost the same as #x
+                    #The only difference is "\n" is not output here.
+                    {
+                        #printf("Buzz")
+                        #r used but reset to zero
+                        r[-]
+                        66+ . [-]
+                        117+ . [-]
+                        122+ . . [-]
+                    }
+                    p[-]
+                ]
+
+                #printf("\n")
+                #r used but reset to zero
+                r[-]
+                10+ . [-]
+
+            }
+
+            iter -
+        }
+
+        U[-]
+    ]
+
+    iter
+
+]
+

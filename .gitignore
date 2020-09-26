@@ -6,3 +6,7 @@ tags
 old/
 used/
 sandbox/
+
+*.brainf.c
+x
+
