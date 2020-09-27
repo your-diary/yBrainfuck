@@ -52,7 +52,7 @@
 
     function print_error(/* str */ s = '') /* -> undefined */ {
         error_flag = true;
-        print(`<br><font color='Red'>${s}</font>`);
+        print(`<br><span style='color: Red;'>${s}</span>`);
     }
 
     /*-------------------------------------*/
@@ -340,6 +340,8 @@
         }
 
         /*-------------------------------------*/
+
+        print('<span style="color: #777777;">EOF</span>');
 
     }
 
