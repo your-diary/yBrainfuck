@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 #An interpreter for yBrainfuck 2.x.
-version: str = '2.0.0'
+version: str = '2.0.1'
 
 #-------------------------------------#
 
@@ -9,7 +9,6 @@ version: str = '2.0.0'
 
 import os
 import re
-import subprocess
 import sys
 
 #-------------------------------------#
@@ -76,7 +75,10 @@ class BrainFuckArray:
         return self.data[self.position]
 
     def readInput(self) -> None:
-        self.data[self.position] = ord(sys.stdin.read(1))
+        char: str = sys.stdin.read(1)
+        if (char == ''):
+            raise Exception('The [ , ] command is specified while EOF is already reached.')
+        self.data[self.position] = ord(char)
 
     def print(self, repeat_count: int = 1) -> None:
         for i in range(repeat_count):
@@ -133,7 +135,7 @@ else:
 
 #-------------------------------------#
 
-### Read the Source ###
+### Reads the Source ###
 
 input_file: str = sys.argv[1]
 if (not os.path.isfile(input_file)):
@@ -154,10 +156,8 @@ for i in range(len(source)):
 
     source[i] = source[i].strip()
 
-    if (source[0].startswith('[')): #ignores the first comment line if exists
-        source[0] = ''
-
-    j: int = source[i].find('#') #ignores comment lines
+    #ignores comment lines
+    j: int = source[i].find('#')
     if (j != -1):
         source[i] = source[i][:j]
 
@@ -165,7 +165,7 @@ for i in range(len(source)):
         variable_name: str = source[i][1:].strip()
         if (re.fullmatch(r'[a-zA-Z][a-zA-Z0-9_]+', variable_name)):
             if (variable_name in variable_list):
-                print(f'The variable [ {variable_name} ] (line: {i}) is already defined.')
+                print(f'The variable [ {variable_name} ] (line: {line_number}) is already defined.')
                 error_flag = True
             else:
                 variable_list.add(variable_name)
@@ -244,7 +244,7 @@ while (iter < len_source - 1):
     elif (c == ']'):
         iter = iter_stack.pop()
 
-    elif (re_digit.fullmatch(c)): #reads the aa under the parser and moves to the specified cell
+    elif (re_digit.fullmatch(c)): #reads the number under the parser and stores it as `repeat_count`
         while (True):
             if (re_digit.fullmatch(source[iter + 1])):
                 iter += 1
@@ -267,4 +267,6 @@ while (iter < len_source - 1):
         raise Exception(f'The command [ {c} ] is invalid.')
 
     repeat_count = 1
+
+#-------------------------------------#
 
