@@ -940,6 +940,10 @@ This bug is easily fixed but neglected for the time being. We are free from this
 
 `./ybrainfuck_v2.py` is an interpreter for a yBrainfuck 2.x code. This is really an interpreter; the C code is no longer generated.
 
+## 4.4 `ybrainfuck_v2.js`
+
+`./browser_version/ybrainfuck_v2/ybrainfuck_v2.js` is a yBrainfuck interpreter which is ported from `./ybrainfuck_v2.py` and works in any browsers. You can open `./browser_version/ybrainfuck_v2/index.html` or just access our [webpage](https://your-diary.com/apps/ybrainfuck/index.html) to try it.
+
 <a id='ybrainfuck_spec'></a>
 # 5. yBrainfuck
 
@@ -949,7 +953,7 @@ In this section, we introduce a new language *yBrainfuck*, which is similar to B
 
 ## 5.2 Compilers / Interpreters
 
-See [Helper Scripts](#helper_scripts) for the interpreters we supply.
+See [Helper Scripts](#helper_scripts) for the interpreters we supply. The easiest way to execute a yBrainfuck code is to use [the browser version](https://your-diary.com/apps/ybrainfuck/index.html).
 
 ## 5.3 Specifications
 

@@ -1,0 +1,48 @@
+body {
+    --width: 40em;
+    --bg-color: #3C3C3C;
+    --fg-color: #DDDDDD;
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    font-family: monospace;
+}
+
+#source_area, #stdin_area, #result_area {
+    max-width: 100%;
+}
+
+button {
+    margin-top: 1em;
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    border: 1px solid var(--fg-color);
+    border-radius: 5px;
+    padding: 0.2em;
+}
+
+button:hover {
+    background-color: #666666;
+}
+
+textarea {
+    display: block;
+    width: var(--width);
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    border: 1px Solid var(--fg-color);
+}
+
+#source_area {
+    height: 25em;
+}
+
+#stdin_area {
+    height: 2em;
+}
+
+#result_area {
+    height: 10em;
+    border: 1px Solid var(--fg-color);
+    overflow: auto;
+}
+
