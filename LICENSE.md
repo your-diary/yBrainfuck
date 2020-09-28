@@ -1,6 +1,6 @@
 This project is multi-licensed.
 Unless otherwise noted, we use the MIT License shown below.
-On the other hand, the Algorihms section in "./README.md" is under the CC0 License as explicitly noted at the start of the section.
+On the other hand, the Algorihms section in "./README.md" is for example under the CC0 License as explicitly noted at the start of the section.
 
 
 
