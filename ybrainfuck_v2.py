@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 #An interpreter for yBrainfuck 2.x.
-version: str = '2.0.1'
+version: str = '2.0.2'
 
 #-------------------------------------#
 
@@ -234,7 +234,9 @@ while (iter < len_source - 1):
                 nest_count: int = 1
                 while (True):
                     iter += 1
-                    if (source[iter] == '['):
+                    if (iter == len_source):
+                        raise Exception('An unclosed loop was found. The `]` command is expected.')
+                    elif (source[iter] == '['):
                         nest_count += 1
                     elif (source[iter] == ']'):
                         nest_count -= 1

@@ -1,5 +1,5 @@
 //An interpreter for yBrainfuck 2.x.
-//This is ported from "../ybrainfuck_v2.py" of the version 2.0.1.
+//This is ported from "../ybrainfuck_v2.py" of the version 2.0.2.
 
 (function() {
     "use strict";
@@ -289,7 +289,10 @@
                         let nest_count = 1;
                         while (true) {
                             ++iter;
-                            if (source[iter] == '[') {
+                            if (iter == len_source) {
+                                print_error('An unclosed loop was found. The `]` command is expected.\n');
+                                break;
+                            } else if (source[iter] == '[') {
                                 ++nest_count;
                             } else if (source[iter] == ']') {
                                 --nest_count;
